@@ -45,5 +45,11 @@ const {Car} = require('../models/cars')
     res.send(rental);
 })
 
-
 module.exports = router;
+
+
+//DELETE
+    router.post('/', auth, async (res, req)=>{
+        const rental = Rental.findByIdAndRemove(req.body)
+        if(!rental) return res.status(404).send("Rental ID is Not Found")
+    })

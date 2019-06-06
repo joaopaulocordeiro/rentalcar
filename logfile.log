@@ -263,3 +263,7 @@
 {"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:40:34.087Z"}
 {"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:42:47.938Z"}
 {"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:42:49.000Z"}
+{"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:44:58.363Z"}
+{"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:44:59.410Z"}
+{"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:52:21.222Z"}
+{"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:52:22.266Z"}
