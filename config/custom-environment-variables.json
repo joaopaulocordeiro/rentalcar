@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "rentalcar_jwtPrivateKey",
+    "db": "rentalcar-api_db"
+}
