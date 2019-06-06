@@ -267,3 +267,11 @@
 {"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:44:59.410Z"}
 {"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:52:21.222Z"}
 {"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:52:22.266Z"}
+{"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:53:49.098Z"}
+{"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:53:50.144Z"}
+{"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:55:28.697Z"}
+{"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:55:29.743Z"}
+{"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:55:38.291Z"}
+{"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:55:39.340Z"}
+{"level":"info","message":"listening on port 3000...","timestamp":"2019-06-06T20:56:05.295Z"}
+{"level":"info","message":"Connected To mongodb://localhost/rentalcar-api...","timestamp":"2019-06-06T20:56:06.318Z"}
