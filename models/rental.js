@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
-const Joi = require('Joi')
-const moment = require('moment')
-const customerSchema = require('../models/customer')
-const carsSchema = require('../models/cars')
+const mongoose = require('mongoose');
+const Joi = require('Joi');
+const moment = require('moment');
+const customerSchema = require('../models/customer');
+const carsSchema = require('../models/cars');
 
 
 const rentalSchema = new mongoose.Schema({
@@ -19,14 +19,14 @@ const rentalSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     }
-})
+});
 
 
 rentalSchema.methods.return = function(){
     this.dateReturned = new Date();
-}
+};
 
-const Rental = mongoose.model('Rental', rentalSchema)
+const Rental = mongoose.model('Rental', rentalSchema);
 
 
 
@@ -37,7 +37,7 @@ function validateRental(rental) {
     };
   
     return Joi.validate(rental, schema);
-  }
+  };
 
 exports.Rental = Rental;
 exports.validate = validateRental;

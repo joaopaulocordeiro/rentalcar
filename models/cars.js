@@ -33,9 +33,9 @@ const carsSchema = new mongoose.Schema({
         default:false,
     }
     
-})
+});
 
-const Car = mongoose.model('Cars', carsSchema)
+const Car = mongoose.model('Cars', carsSchema);
 
 function validateCars(car){
     const schema = {
@@ -45,8 +45,8 @@ function validateCars(car){
         licensePlate: Joi.string().min(0).max(255).required(),
     }
 
-    return Joi.validate(car, schema)   
-}
+    return Joi.validate(car, schema);   
+};
 
 exports.Car = Car;
 exports.validate = validateCars;

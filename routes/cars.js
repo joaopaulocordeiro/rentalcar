@@ -1,10 +1,10 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const {Car, validate} = require('../models/cars')
+const {Car, validate} = require('../models/cars');
 
 
 //POST
-router.post('/', async (req, res)=>{
+router.post('/', async (req, res) => {
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message)    
         
@@ -13,15 +13,16 @@ router.post('/', async (req, res)=>{
             year: req.body.year,
             color: req.body.color,
             licensePlate: req.body.licensePlate,
-        })
-//save car class
+        });
+    
+    //save car class
     await cars.save();
     res.send(cars)
 });
 
 
 //GET
-router.get('/:id', async (req, res)=>{
+router.get('/:id', async (req, res) => {
     const cars = await Car.findById(req.params.id)
     if(!cars) return res.status(404).send('Car ID is not Found')
     res.send(cars);
@@ -29,13 +30,13 @@ router.get('/:id', async (req, res)=>{
 
 
 //GET ALL
-router.get('/', async(req, res)=>{
+router.get('/', async(req, res) => {
     const cars = await Car.find().sort('name')
     res.send(cars)
 });
 
 //UPDATE
-router.put('/:id', async(req, res)=>{
+router.put('/:id', async(req, res) => {
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message)
    
@@ -46,7 +47,7 @@ router.put('/:id', async(req, res)=>{
        licensePlate: req.body.licensePlate,
        isRented: req.body.isRented,
 
-   },{new: true})
+   },{new: true});
    
    if(!cars) return res.status(404).send('Car ID is not Found')
    res.send(cars);

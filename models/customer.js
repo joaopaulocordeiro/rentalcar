@@ -21,10 +21,10 @@ const Joi = require('joi');
             minlength: 0,
             maxlength: 255,
         }
-    })
+    });
 
 //Mongoose Model
-    const Customers = mongoose.model('Customer', customerSchema)
+    const Customers = mongoose.model('Customer', customerSchema);
 
 //Validate Joi
     function customerValidate(customer){
@@ -34,7 +34,7 @@ const Joi = require('joi');
             address: Joi.string().min(0).max(255).required(),
         }
         return Joi.validate(customer, schema);
-    }
+    };
 
 //Export CustomerSchema    
 exports.Customers = Customers;
