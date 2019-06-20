@@ -1,8 +1,8 @@
-const express = require('express')
-const cars = require('../routes/cars')
-const customers = require('../routes/customer')
-const users = require('../routes/user')
-const rental = require('../routes/rental')
+const express = require('express');
+const cars = require('../routes/cars');
+const customers = require('../routes/customer');
+const users = require('../routes/user');
+const rental = require('../routes/rental');
 
 module.exports = function (app){
     app.use(express.json());
