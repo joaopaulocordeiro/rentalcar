@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
-const express = require('express')
+const mongoose = require('mongoose');
+const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken')
-const {User, validate} = require('../models/user')
-const auth = require('../middleware/auth')
+const jwt = require('jsonwebtoken');
+const {User, validate} = require('../models/user');
+const auth = require('../middleware/auth');
 const _ = require('lodash');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 
 //GET
@@ -16,18 +16,20 @@ const bcrypt = require('bcrypt')
 
 //POST
     router.post('/', async (req, res)=>{
+        //validação de erro
         const {error} = validate(req.body);
-        if(error) return res.status(400).send(error.details[0].message)
+        if(error) return res.status(400).send(error.details[0].message);
 
-        let user = await User.findOne({email:req.body.email})
-        if(user) return res.status(400).send('User already registered')
+        let user = await User.findOne({email:req.body.email});
+        if(user) return res.status(400).send('User already registered');
 
+        //new user
         user = new User(_.pick(req.body,['name', 'email', 'password']));
         const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(user.password, salt) //hash password encrypt
+        user.password = await bcrypt.hash(user.password, salt); //hash password encrypt
 
         const token = user.generateAuthToken() //jsonwebtoken
-        res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']))
+        res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
     
     })
 
