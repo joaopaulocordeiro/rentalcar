@@ -39,9 +39,5 @@ const {Customers, validate} = require('../models/customer');
     });
 
 
-
-
-
-
 //export to index
-    module.exports = router;
+module.exports = router;

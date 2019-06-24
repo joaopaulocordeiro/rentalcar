@@ -9,13 +9,13 @@ const bcrypt = require('bcrypt');
 
 
 //GET
-    router.get('/', auth, async(req, res)=>{
+    router.get('/', auth, async(req, res) => {
         const user = await User.findById(req.user._id).select('-password')
         res.send(user);
     })
 
 //POST
-    router.post('/', async (req, res)=>{
+    router.post('/', async (req, res) => {
         //validação de erro
         const {error} = validate(req.body);
         if(error) return res.status(400).send(error.details[0].message);
@@ -31,6 +31,12 @@ const bcrypt = require('bcrypt');
         const token = user.generateAuthToken() //jsonwebtoken
         res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
     
+    })
+
+//DELETE 
+    router.delete('/:id', auth, async(req, res) => {
+        const {error} = await User.findByIdAndRemove(req.params.id)
+        if(error) return res.status(400).send(error.details[0].message)
     })
 
 module.exports = router;
