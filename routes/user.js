@@ -33,10 +33,22 @@ const bcrypt = require('bcrypt');
     
     })
 
+//UPDATE
+    router.put('/:id', auth, async (req, res)=>{
+        const user = await User.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            email: req.body.email,
+            isAdm: req.body.isAdm,
+        },{new: true})
+        
+        if(!user) return res.status(404).send("The User Id is not found")
+        res.send(user);
+    })    
+
 //DELETE 
     router.delete('/:id', auth, async(req, res) => {
-        const {error} = await User.findByIdAndRemove(req.params.id)
-        if(error) return res.status(400).send(error.details[0].message)
+        const user = await User.findByIdAndRemove(req.params.id)
+        if(!user) return res.status(404).send("User is not found")
     })
 
 module.exports = router;
