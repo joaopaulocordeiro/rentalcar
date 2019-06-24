@@ -40,17 +40,17 @@ const {Car} = require('../models/cars');
                 isRented: cars.isRented,
             }
         });
-    cars.isRented = true;
-    cars.save();
-    await rental.save();
-    res.send(rental);
+        cars.isRented = true;
+        cars.save();
+        await rental.save();
+        res.send(rental);
 })
 
 //DELETE
     router.post('/', auth, async (res, req)=>{
         const rental = Rental.findByIdAndRemove(req.body);
         if(!rental) return res.status(404).send("Rental ID is Not Found");
-})
+    })
 
 
 module.exports = router;

@@ -34,7 +34,7 @@ const bcrypt = require('bcrypt');
     })
 
 //UPDATE
-    router.put('/:id', auth, async (req, res)=>{
+    router.put('/:id', auth, async (req, res) => {
         const user = await User.findByIdAndUpdate(req.params.id, {
             name: req.body.name,
             email: req.body.email,
